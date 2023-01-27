@@ -9,7 +9,7 @@ const index = (req, res) => {
 const buy =(req,res)=>{
     User.update(
         {
-            package: req.body.package
+            package: req.body.package_id
         },
         {
             where: {username: req.user.username}
