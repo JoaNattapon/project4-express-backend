@@ -36,7 +36,7 @@ const verifyToken = (req, res, next) => {
     });
 };
 app.use("/user", routes.user);
-
+app.use("/package", routes.package);
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
