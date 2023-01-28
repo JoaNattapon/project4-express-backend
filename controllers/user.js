@@ -155,10 +155,38 @@ const deleteUser = async (req, res) => {
         User.destroy({where: {id: decodedUser.id}});
     });
 };
+const getUser = (req, res) => {
+    const bearerHeader = req.headers["authorization"];
+    if (typeof bearerHeader !== "undefined") {
+        const bearer = bearerHeader.split(" ");
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+    }
+
+    jwt.verify(req.token, process.env.JWT_SECRET, (err, decodedUser) => {
+        if (err || !decodedUser)
+            return res.status(401).json({error: "Unauthorized Request"});
+
+        req.user = decodedUser;
+        User.findOne({where: {username: decodedUser.username}}).then((resu) => {
+            console.log(resu)
+            res.json({
+                username: resu.username,
+                password: resu.password,
+                firstname: resu.firstname,
+                lastname: resu.lastname,
+                phone: resu.phone,
+                email: resu.email,
+                address: resu.address,
+            });
+        });
+    });
+};
 module.exports={
     test,
     signup,
     login,
     edit,
-    deleteUser
+    deleteUser,
+    getUser
 }
