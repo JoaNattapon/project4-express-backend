@@ -1,7 +1,9 @@
 
 const Package = require("../models").InsurancePackage
 const User = require("../models").User
-
+const bcrypt = require("bcryptjs");
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 const index = (req, res) => {
     Package.findAll().then(packages => {res.json(packages)})
 }
