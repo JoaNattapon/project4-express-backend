@@ -15,8 +15,10 @@ const buy =(req,res)=>{
         const bearerToken = bearer[1];
         req.token = bearerToken;
     }
+    console.log(req.token)
 
     jwt.verify(req.token, process.env.JWT_SECRET, (err, decodedUser) => {
+        console.log(decodedUser);
         if (err || !decodedUser)
             return res.status(401).json({error: "Unauthorized Request"});
 
