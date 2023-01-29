@@ -26,7 +26,7 @@ const buy =(req,res)=>{
 
     User.update(
         {
-            package: req.body.package_id
+            package_id: req.body.package_id
         },
         {
             where: {username: decodedUser.username}
