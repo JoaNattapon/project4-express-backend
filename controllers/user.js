@@ -168,7 +168,7 @@ const getUser = (req, res) => {
             return res.status(401).json({error: "Unauthorized Request"});
 
         req.user = decodedUser;
-        
+
         User.findOne({where: {username: decodedUser.username}}).then((resu) => {
             console.log(resu)
             res.json({
@@ -179,6 +179,7 @@ const getUser = (req, res) => {
                 phone: resu.phone,
                 email: resu.email,
                 address: resu.address,
+                package_id: resu.package_id
             });
         });
     });
