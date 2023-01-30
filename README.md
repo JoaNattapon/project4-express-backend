@@ -6,6 +6,7 @@ https://health-insure.netlify.app/
 ##  Technology Stack
 <p float="left">
   <img src="https://expressjs.com/images/express-facebook-share.png" width="170px" height="70px" />  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" width="110px" height="70px" />  
 </p>
 
 ## User Story
