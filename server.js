@@ -11,7 +11,7 @@ const corsOptions = {
 const app = express();
 const routes = require("./routes");
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser);
 app.use(cookieParser());
 app.use(express.static("public"));
